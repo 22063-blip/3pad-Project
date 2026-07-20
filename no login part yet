@@ -1,0 +1,70 @@
+import tkinter as tk
+from tkinter import messagebox
+from datetime import datetime
+from PIL import Image, ImageTk
+
+
+# quiz app thing i made
+class QuizApp:
+    def __init__(self, win):
+
+        self.win = win
+        self.win.title("Flow Computing Quiz")
+        self.win.geometry("900x800")
+        self.win.configure(bg="#b8f2e6")
+
+        # user stuff i guess
+        self.user = ""
+        self.score = 0
+        self.lives = 3
+        self.mode = ""
+
+        # banner image for all screens (bit slow to load ngl)
+        self.banner_img = Image.open(r"C:\Users\OEM\OneDrive - Lynfield College\Documents\3Pad\Code\math banner.jpg")
+        self.banner_img = self.banner_img.resize((320, 130))
+        self.banner = ImageTk.PhotoImage(self.banner_img)
+
+        # questions for the quiz, just shoved here
+        self.quiz = {
+            "easy": [["e1.png", 10], ["e2.png", 13], ["e3.png", 5], ["e4.png", 13], ["e5.png", 5]],
+            "medium": [["m1.png", 8], ["m2.png", 20], ["m3.png", 11], ["m4.png", 13], ["m5.png", 5]],
+            "hard": [["h1.png", 12], ["h2.png", 24], ["h3.png", 8], ["h4.png", 13], ["h5.png", 5]]
+        }
+
+        # screens setup thing
+        self.login = LoginScreen(self)
+        self.menu = MenuScreen(self)
+        self.quiz_screen = QuizScreen(self)
+
+        self.login_page()
+
+    # back to login i think
+    def login_page(self):
+        self.menu.hide()
+        self.quiz_screen.hide()
+        self.login.show()
+
+    # menu screen thing
+    def menu_page(self):
+        self.login.hide()
+        self.menu.show()
+        self.quiz_screen.hide()
+
+    # start game
+    def start(self, mode):
+
+        self.mode = mode
+        self.score = 0
+        self.lives = 3
+
+        self.login.hide()
+        self.menu.hide()
+
+        self.quiz_screen.start(mode)
+        self.quiz_screen.show()
+
+
+# run
+root = tk.Tk()
+app = QuizApp(root)
+root.mainloop()
