@@ -20,7 +20,7 @@ class QuizApp:
         self.mode = ""
 
         # banner image for all screens (bit slow to load ngl)
-        self.banner_img = Image.open(r"C:\Users\OEM\OneDrive - Lynfield College\Documents\3Pad\Code\math banner.jpg")
+        self.banner_img = Image.open(r"C:\Users\22063\OneDrive - Lynfield College\Documents\3Pad\Code\math banner.jpg")
         self.banner_img = self.banner_img.resize((320, 130))
         self.banner = ImageTk.PhotoImage(self.banner_img)
 
