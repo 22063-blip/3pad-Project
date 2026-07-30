@@ -1,11 +1,14 @@
 Author: Ekansh Singh
 Date: 30/07/2026
 
-About
+**Make sure to download the PIL library before running the code.**
+
+
+**About**
 
 This is a maths quiz created with Python using the Tkinter interface. It lets users log in, select a difficulty level, answer maths questions, and see their scores.
 
-How to Use the Maths Quiz
+**How to Use the Maths Quiz**
 
 1. Start the application.
 2. Create an account by filling in your username and password and clicking Sign Up.
